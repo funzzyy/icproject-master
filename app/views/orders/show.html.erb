@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user.id %>
+</p>
+
+<p>
+  <strong>Provider:</strong>
+  <%= @order.provider.first_name %>
+</p>
+
+<p>
+  <strong>Datecreated:</strong>
+  <%= @order.dateCreated %>
+</p>
+
+<p>
+  <strong>Finishdate:</strong>
+  <%= @order.finishDate %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @order.cost %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+<%= link_to 'Back', orders_path %>

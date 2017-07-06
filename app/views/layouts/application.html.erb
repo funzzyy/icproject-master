@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WAM</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+        <p>
+          Hello Client, <%= current_user.first_name %> -
+          <%= link_to 'Order', orders_path %> |
+          <%= link_to 'Show profile', current_user %> |
+          <%= link_to "Sign Out", destroy_user_session_path, :method => 'delete' %>
+        </p>
+    <% elsif provider_signed_in? %>
+      <p>
+        Hello Provider, <%= current_provider.first_name %> -
+        <%= link_to 'Services', services_path %> |
+        <%= link_to 'Orders', orders_path %> |
+        <%= link_to 'Show profile', current_provider %> |
+        <%= link_to "Sign Out", destroy_provider_session_path, :method => 'delete' %>
+      </p>
+  <% end %>
+
+
+    <div class="container">
+      <% if notice %>
+          <div class="alert alert-info"><%= notice %></div>
+      <%end%>
+      <% if alert %>
+          <div class="alert alert-warning"><%= alert %></div>
+      <%end%>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

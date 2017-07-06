@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>User</th>
+      <th>Provider</th>
+      <th>Datecreated</th>
+      <th>Finishdate</th>
+      <th>Cost</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% if user_signed_in? %>
+      <% @orders.where(user_id: current_user.id).find_each do |order| %>
+          <tr>
+            <td><%= order.service.name %></td>
+            <td><%= order.user.email %></td>
+            <td><%= order.provider.email %></td>
+            <td><%= order.dateCreated %></td>
+            <td><%= order.finishDate %></td>
+            <td><%= order.cost %></td>
+            <td><%= order.address %></td>
+            <td><%= link_to 'Show', order %></td>
+          </tr>
+      <% end %>
+  <% elsif provider_signed_in? %>
+      <% @orders.where(provider_id: current_provider.id).find_each do |order| %>
+          <tr>
+            <td><%= order.service.name %></td>
+            <td><%= order.user.email %></td>
+            <td><%= order.provider.email %></td>
+            <td><%= order.dateCreated %></td>
+            <td><%= order.finishDate %></td>
+            <td><%= order.cost %></td>
+            <td><%= order.address %></td>
+            <td><%= link_to 'Show', order %></td>
+          </tr>
+      <% end %>
+  <% end %>
+  </tbody>
+</table>
+<% if user_signed_in? %>
+<%= link_to 'New Order', new_order_path %>
+<% end %>
+
+<br>

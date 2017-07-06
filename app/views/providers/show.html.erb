@@ -1,0 +1,46 @@
+<h1>Profile</h1>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @provider.first_name %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @provider.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @provider.email %>
+</p>
+
+<p>
+  <strong>Birth Date:</strong>
+  <%= @provider.birth_date %>
+</p>
+
+<p>
+  <strong>Phone Number:</strong>
+  <%= @provider.phone_number %>
+</p>
+
+<p>
+  <strong>ID Number:</strong>
+  <%= @provider.id_number %>
+</p>
+
+<p>
+  <strong>Fiscal Number:</strong>
+  <%= @provider.fiscal_number %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @provider.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_provider_registration_path, :class => 'navbar-link' %>
+
+<%= link_to "Back", :back %>
